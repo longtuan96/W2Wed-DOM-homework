@@ -5,6 +5,10 @@ function runAfterPageload() {
   after3Sec();
   countAfterload();
   changeColor3Sec();
+  resizeChange();
+  clickAddLi();
+  clickUrl();
+  clickTyping();
 }
 
 //Please change me after 3 sec
@@ -92,4 +96,93 @@ divClickTime.onclick = function () {
 function clickTime() {
   let currentDate = new Date();
   divClickTime.innerHTML = currentDate;
+}
+
+//Put the windows width in my when the screen is resized
+const divResizeWidth = document.getElementById("change-to-current-width");
+const divResizeHeight = document.getElementById("change-to-current-height");
+function resizeChange() {
+  window.addEventListener("resize", function () {
+    changeToCurrent();
+    console.log("running");
+  });
+}
+function changeToCurrent() {
+  let widthCurrent = window.innerWidth;
+  let heightCurrent = window.innerHeight;
+  divResizeWidth.innerHTML = `Width: ${widthCurrent}`;
+  divResizeHeight.innerHTML = `Height: ${heightCurrent}`;
+}
+
+//add a html li when i clicked
+const divAddList = document.getElementById("add-list-item");
+let countLi = 1;
+function clickAddLi() {
+  divAddList.onclick = function () {
+    addNewLi();
+  };
+}
+
+function addNewLi() {
+  const newLi = document.createElement("li");
+  let newContent = document.createTextNode(
+    `this is a new Li number ${countLi}`
+  );
+  newLi.appendChild(newContent);
+  divAddList.appendChild(newLi);
+  countLi++;
+}
+
+//show website URL when clicked
+const divUrl = document.getElementById("change-to-url");
+function changeToUrl() {
+  let urlCurrent = document.URL;
+  divUrl.innerHTML = urlCurrent;
+}
+function clickUrl() {
+  divUrl.onclick = function () {
+    changeToUrl();
+  };
+}
+
+//Add some typewriteing when the next box is clicked.
+
+const divTyping = document.getElementById("type-a-sentence");
+let stepTyping = 0;
+let textTyping = " |haha nothing to say here";
+let speedTyping = 50;
+
+function typeWriter() {
+  if (stepTyping < textTyping.length) {
+    divTyping.innerHTML += textTyping.charAt(stepTyping);
+    stepTyping++;
+    setTimeout(typeWriter, speedTyping);
+  }
+}
+function clickTyping() {
+  divTyping.addEventListener("click", typeWriter());
+  console.log("typing");
+}
+//Email sign in sign out
+const buttonSignIn = document.getElementById("buttonSignIn");
+const buttonSignOut = document.getElementById("buttonSignOut");
+const divSignIn = document.getElementById("emailSignIn");
+const divSignOut = document.getElementById("emailSignOut");
+function signIn() {
+  if (divSignIn.style.display === "none") {
+    divSignIn.style.display = "flex";
+    divSignOut.style.display = "none";
+  } else {
+    divSignIn.style.display = "none";
+    divSignOut.style.display = "flex";
+  }
+}
+function signOut() {
+  if (divSignOut.style.display === "none") {
+    divSignOut.style.display = "flex";
+    divSignIn.style.display = "none";
+  } else {
+    divSignOut.style.display = "none";
+    divSignIn.style.display = "flex";
+  }
 }

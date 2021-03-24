@@ -1,3 +1,10 @@
 body {
   min-height: 100vh;
 }
+.sign-in {
+  display: flex;
+  flex-direction: column;
+}
+.sign-out {
+  justify-content: center;
+}

@@ -98,14 +98,51 @@
       <div id="change-to-url" class="container rounded border p-2 my-1">
         Show the URL when I'm clicked
       </div>
+
+      <div id="type-a-sentence" class="container rounded border p-2 my-1">
+        click to know more about me
+      </div>
+
+      <div class="container rounded border p-2 my-1">
+        <div class="mb-3 sign-in" id="emailSignIn">
+          <label for="FormControlInput1" class="form-label"
+            >Email address
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="FormControlInput1"
+            placeholder="name@example.com"
+          />
+          <label for="FormControlInput1" class="form-label"
+            >We will never give your email to third-party
+          </label>
+          <button
+            id="buttonSignIn"
+            onclick="signIn()"
+            type="button"
+            class="btn btn-primary btn-sm"
+          >
+            Log in
+          </button>
+        </div>
+        <div id="emailSignOut" class="mb-3 sign-out" style="display: none">
+          <button
+            id="buttonSignOut"
+            onclick="signOut()"
+            type="button"
+            class="btn btn-danger btn-sm sign-out"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
     </section>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container d-flex align-items-center justify-content-center">
         <span class="text-muted">
           Made with ❤️ by
-          <a className="m-1" href="https://github.com/PrimeTimeTran">
-            PrimeTimeTran
-          </a>
+          <a className="m-1" href="https://github.com/longtuan96"> SIRIS </a>
         </span>
       </div>
     </footer>
