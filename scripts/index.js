@@ -153,14 +153,20 @@ let textTyping = " |haha nothing to say here";
 let speedTyping = 50;
 
 function typeWriter() {
+  // console.log("hahah");
   if (stepTyping < textTyping.length) {
     divTyping.innerHTML += textTyping.charAt(stepTyping);
+    console.log("here", divTyping.innerHTML);
+
     stepTyping++;
+
     setTimeout(typeWriter, speedTyping);
+  } else {
+    stepTyping = 0;
   }
 }
 function clickTyping() {
-  divTyping.addEventListener("click", typeWriter());
+  divTyping.addEventListener("click", typeWriter);
   console.log("typing");
 }
 //Email sign in sign out
